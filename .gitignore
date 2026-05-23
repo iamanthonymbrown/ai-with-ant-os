@@ -1,0 +1,40 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (in case any tooling is added later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build / temp
+dist/
+build/
+tmp/
+.cache/
+
+# OS-specific
+Thumbs.db
+ehthumbs.db
+
+# Secrets — should not be in public repo, but defense in depth
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+secrets/
+
+# Logs
+logs/
+*.log
