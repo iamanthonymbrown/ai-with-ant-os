@@ -2,6 +2,10 @@
 
 Reference architectures for the AI with Ant method.
 
+## Available
+
+- [`hybrid-memory-architecture.png`](hybrid-memory-architecture.png) — the four-layer OS stack from [`ARCHITECTURE.md`](../ARCHITECTURE.md): Capture (Open Brain) → Synthesize (the markdown vault) → Produce (Skills) → Publish, with the *capture once, synthesize, produce many* rule running through it. Regenerate with [`hybrid-memory-architecture.py`](hybrid-memory-architecture.py) (`python3 diagrams/hybrid-memory-architecture.py`, needs Pillow).
+
 ## Coming soon
 
 - `ai-sales-os-prompt-flow.png` — the dual-chain prompt flow diagram. 8-step Early Chain (Territory Intelligence) + 5-step Daily Chain (Deal Execution) + the *"meeting booked → Slack Skills take over"* handoff.
