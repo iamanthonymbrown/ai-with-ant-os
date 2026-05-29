@@ -2,6 +2,8 @@
 
 The hybrid memory system that sits underneath Map / Build / Run.
 
+![The hybrid memory architecture: capture (Open Brain) → synthesize (the vault) → produce (Skills) → publish, connected by the rule "capture once, synthesize in the vault, produce many".](diagrams/hybrid-memory-architecture.png)
+
 ---
 
 ## Why this doc exists
@@ -97,6 +99,20 @@ The instinct is to pick one tool and make it do everything. Don't. Capture and k
 A single tool optimized for one of these columns is bad at the other. A capture app that forces you to file and tag in the moment isn't fast — so you stop using it, and the insights evaporate. A knowledge base you can only edit from one machine in one app isn't ambient — so the captures never make it in.
 
 So you split them. A fast inbox (Open Brain) and a slow library (the vault), connected by the rule. That's the hybrid, and it's the whole point.
+
+---
+
+## What the hybrid buys you
+
+The split isn't just tidy — it pays for itself in four ways that a single chat-window workflow can't touch.
+
+**Lower token cost.** This is the one people feel in the bill. Without a vault, every task starts by dumping context into the prompt — whole transcripts, whole documents, "here's everything about this account again." With a vault, a Skill retrieves *only the pages it needs* and Open Brain returns *only the semantic matches*, so you pay for the paragraph, not the archive. Persistent memory also means you stop re-explaining your world every session. Retrieval beats brute-force context, and retrieval is cheaper.
+
+**Indexed memory.** Open Brain stores captures with vector embeddings (pgvector), so recall is *search by meaning*, not search by keyword or by remembering where you filed it. Ask for "that thing about renewal risk" and you get it, even if you never used those words when you captured it.
+
+**A knowledge graph.** The vault isn't a flat folder of notes — Obsidian links entities, decisions, projects, and people into a graph. The model can traverse relationships ("who are the stakeholders on this account, and what did we decide last quarter?") instead of scanning a list. Synthesis keeps the graph dense: because new sources *rewrite* the page on a topic instead of appending another note, the graph sharpens over time rather than silting up with duplicates.
+
+**Flexible data collection → synthesis.** Collection stays loose and opportunistic — clip research, dictate a thought, paste a link, from any surface, with zero up-front structure. Synthesis is where structure gets imposed, on its own schedule: captures and sources get distilled and merged into canonical vault pages. Loose in, structured out. You never have to choose between "capture it now" and "file it correctly" — the architecture lets you do both, in that order.
 
 ---
 
