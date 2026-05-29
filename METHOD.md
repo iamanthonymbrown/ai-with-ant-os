@@ -2,6 +2,8 @@
 
 A working framework for installing a personal AI operating system on the role you actually do.
 
+> This is the **Produce** layer. It assumes you've already stood up the memory substrate — capture (Open Brain) plus the vault — described in [`ARCHITECTURE.md`](ARCHITECTURE.md). Skills are only as good as the memory they read from; build that first.
+
 ---
 
 ## Why this exists
