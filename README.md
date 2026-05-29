@@ -9,6 +9,8 @@ Most people use AI as a vending machine. Walk up, type a question, get an output
 
 The alternative: treat your role as a system worth architecting. Map the work, build the Skills, run the adoption. The frame is portable. Sales OS, CSM OS, PM OS, Creator OS — same method, different chains, different rule, different Skills.
 
+But Skills are only half of it. An operating system needs memory — or it forgets everything between runs and you're back to renting by the minute. Underneath the method is a **hybrid memory architecture**: a fast capture layer (Open Brain) and a canonical knowledge vault (a markdown wiki in git), connected by one rule — *capture once, synthesize in the vault, produce many*. That's what turns a pile of Skills into an OS. See [`ARCHITECTURE.md`](ARCHITECTURE.md).
+
 This repo gives you the templates, prompts, and reference architecture to install your own.
 
 ---
@@ -17,7 +19,8 @@ This repo gives you the templates, prompts, and reference architecture to instal
 
 | Path | What it is |
 |---|---|
-| [`METHOD.md`](METHOD.md) | The Map / Build / Run framework in long form. Start here. |
+| [`METHOD.md`](METHOD.md) | The Map / Build / Run framework in long form. How to design the Skills. Start here. |
+| [`ARCHITECTURE.md`](ARCHITECTURE.md) | The hybrid memory system underneath the method — capture (Open Brain) + a markdown knowledge vault, and why it's split that way. How the OS *remembers*. |
 | [`prompts/slack-skill-builder.md`](prompts/slack-skill-builder.md) | The 400-line system prompt that turns Claude into a Slack Skill architect. Drop into Claude Projects, describe a workflow, get a complete implementation-ready spec. |
 | [`templates/newsletter/`](templates/newsletter/) | Four post templates — Build Log, Teardown, Field Note, The Long Lens. Copy, fill in, ship. |
 | [`brand-book/`](brand-book/) | Voice guide and visual system for anyone forking the method. |
@@ -49,11 +52,12 @@ If you've ever opened ChatGPT, asked a brilliant question, gotten a useful answe
 
 **Building your own role-based AI OS:**
 
-1. [`METHOD.md`](METHOD.md) for the framework
-2. [`diagrams/ai-sales-os-prompt-flow.png`](diagrams/) as the reference architecture
-3. Adapt the dual-chain structure (Early Chain quarterly + Daily Chain in-flow) to your role
-4. Use the Skill Builder prompt to spec each Skill in your chain
-5. Ship, iterate, repeat
+1. [`ARCHITECTURE.md`](ARCHITECTURE.md) first — stand up the memory substrate (capture layer + vault) so the Skills have somewhere to read from and write to
+2. [`METHOD.md`](METHOD.md) for the framework
+3. [`diagrams/ai-sales-os-prompt-flow.png`](diagrams/) as the reference architecture
+4. Adapt the dual-chain structure (Early Chain quarterly + Daily Chain in-flow) to your role
+5. Use the Skill Builder prompt to spec each Skill in your chain
+6. Ship, iterate, repeat
 
 **Writing in the field-log style:**
 
