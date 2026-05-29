@@ -47,9 +47,8 @@ The full argument is in [`ARCHITECTURE.md`](ARCHITECTURE.md#what-the-hybrid-buys
 |---|---|
 | [`ARCHITECTURE.md`](ARCHITECTURE.md) | **The system.** The hybrid memory model — Open Brain + the vault, how capture works, and why the split. **Read this first.** |
 | [`METHOD.md`](METHOD.md) | **The method.** Map / Build / Run — how to turn that memory into Skills for the role you actually do. |
-| [`prompts/slack-skill-builder.md`](prompts/slack-skill-builder.md) | The system prompt that turns Claude into a Skill architect. Describe a workflow, get an implementation-ready spec. |
 | [`diagrams/`](diagrams/) | Reference architectures — the hybrid memory stack, the dual-chain prompt flow, more. |
-| [`case-studies/`](case-studies/) | Real builds on this system — the 18-Skills-in-2-weeks story, the creator pipeline, more as they ship. |
+| [`case-studies/`](case-studies/) | Real builds on this system — standing up the memory substrate, the creator pipeline, more as they ship. |
 | [`templates/`](templates/) | Field-log post templates, for publishing what you build. Supporting material. |
 | [`brand-book/`](brand-book/) | Voice guide and visual system, for anyone forking and publishing. Supporting material. |
 
@@ -63,7 +62,7 @@ It's a stack. Build it bottom-up.
 Follow [`ARCHITECTURE.md`](ARCHITECTURE.md): stand up a capture layer ([Open Brain / OB1](https://github.com/NateBJones-Projects/OB1)), start a vault as a private git repo, and wire the rule. Push the vault to a remote so it's reachable from any machine — and from Claude Code on the web, which clones the repo into each session. The whole brain travels with a `git clone`.
 
 **2. Build Skills on top — the work.**
-With memory in place, use [`METHOD.md`](METHOD.md) to map your role, build Skills that read the vault and capture, and run the adoption. The [Slack Skill Builder prompt](prompts/slack-skill-builder.md) does the hard part of writing each spec. Ship one Skill this week.
+With memory in place, use [`METHOD.md`](METHOD.md) to map your role, then spec and build Skills that read the vault and capture. Start with the most boring, most repetitive job you do — that's where leverage lives. Ship one Skill this week.
 
 **3. Publish what you build — optional.**
 If you write in public, the [newsletter templates](templates/newsletter/) and [brand-book](brand-book/) are the same field-log voice and visual system used in AI with Ant. Copy, fill, ship.

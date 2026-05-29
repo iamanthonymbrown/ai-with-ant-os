@@ -77,7 +77,7 @@ That's not the model getting better. That's the **system building the system** �
 
 Start with the most boring, most repetitive Skill in your map. Reads, not writes. Read-only Skills can't damage anything if they're wrong. Save writes for Skill #3 or later, once you trust your design instincts.
 
-The [Slack Skill Builder prompt](prompts/slack-skill-builder.md) in this repo handles the hard part of writing a Skill spec. You bring the workflow description; it produces an implementation-ready spec including trigger, inputs, behavior, integrations, outputs, scopes, error handling, and guardrails.
+Spec each Skill before you build it. An implementation-ready spec names the trigger, the inputs, the behavior, the integrations, the outputs, the minimal permission scopes, the error handling, and the guardrails. Writing that spec is the hard part; the build follows from it. Have your AI draft the spec from a plain description of the workflow, then tighten it until each field is unambiguous.
 
 ---
 
@@ -133,7 +133,7 @@ The point isn't to copy one of these literally. The point is to recognize the sh
 ## What this method is not
 
 - **It's not "AI literacy."** This is about systems thinking applied to AI tools. If you don't already know what Claude does, this isn't your starting point — go use AI as a chat window for a week first.
-- **It's not a no-code framework.** You'll write specs, configure integrations, possibly hand specs to a developer for some Skills. The Skill Builder prompt reduces this work significantly but doesn't eliminate it.
+- **It's not a no-code framework.** You'll write specs, configure integrations, and possibly hand specs to a developer for some Skills.
 - **It's not a product.** It's the method behind a product (the [AI with Ant](https://aiwithant.com) newsletter and the future AI OS install playbook). The method itself is open — fork it, use it, build with it.
 - **It's not finished.** I'll be adding case studies, refined templates, and new architectural patterns over time. PRs welcome.
 
@@ -141,7 +141,7 @@ The point isn't to copy one of these literally. The point is to recognize the sh
 
 ## Next
 
-- Read the [Slack Skill Builder prompt](prompts/slack-skill-builder.md) and ship one Skill this week
+- Stand up the memory substrate in [`ARCHITECTURE.md`](ARCHITECTURE.md), then spec and ship one Skill this week
 - Pick a [newsletter template](templates/newsletter/) and write your first field note
 - Subscribe to [AI with Ant — Field Notes](https://aiwithant.com) for ongoing build logs, teardowns, and case studies
 

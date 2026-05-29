@@ -154,7 +154,6 @@ The components are swappable. The *shape* — fast capture, canonical vault, the
 ## Next
 
 - [`METHOD.md`](./METHOD.md) — Map / Build / Run, the Skill-design framework that runs on this substrate
-- [`prompts/slack-skill-builder.md`](./prompts/slack-skill-builder.md) — spec a Skill for the Produce layer
 - [AI with Ant — Field Notes](https://aiwithant.com) — applied build logs and teardowns
 
 — Anthony Brown
