@@ -31,7 +31,9 @@ One rule ties the stack together:
 
 ## Layer 1 — Capture (Open Brain)
 
-**What it is:** a small memory service you can write to from anywhere — phone, laptop, Claude Code, the browser, ChatGPT. Built as an MCP server backed by a Supabase edge function, exposing a handful of tools: capture a thought, search by meaning, list recent, get stats. Because it's a service and not a file, every surface you work on can reach the *same* memory.
+**What it is:** a small memory service you can write to from anywhere — phone, laptop, Claude Code, the browser, ChatGPT. Built as an MCP server backed by a Supabase edge function (Postgres + pgvector for search-by-meaning), exposing a handful of tools: capture a thought, search by meaning, list recent, get stats. Because it's a service and not a file, every surface you work on can reach the *same* memory.
+
+I run [**Open Brain (OB1)**](https://github.com/NateBJones-Projects/OB1) for this layer — *"the infrastructure layer for your thinking. One database, one AI gateway, one chat channel — any AI plugs in."* It's self-hosted and open source, so the memory is yours, not a SaaS vendor's.
 
 **Its job:** kill capture friction. The single most expensive failure in personal AI isn't a bad prompt — it's the insight you never wrote down because the place to write it down was three taps and an app-switch away. A capture layer has exactly one requirement: be so fast and so omnipresent that there's no excuse not to use it.
 
@@ -44,6 +46,8 @@ One rule ties the stack together:
 **What it is:** an Obsidian vault — plain markdown files, version-controlled in git. The source of truth for knowledge, entities, decisions, and strategy. The wiki your LLM reads before it does anything. Captures flow *in*; structured, durable knowledge is what comes *out*.
 
 **Its job:** be canonical. When a Skill needs to know who an account's stakeholders are, what a project decided, or what your positioning is, it reads the vault. Not a chat history, not a capture inbox — the vault. There is one home for each fact.
+
+**How synthesis happens:** distilling captures into structured pages is the work this layer does, and it can be automated. I drive it with the [**obsidian-second-brain**](https://github.com/eugeniughelbur/obsidian-second-brain) Claude Code skill — *"one codebase, four CLIs, same brain."* Its key move: a new source *rewrites* the existing page on a topic instead of appending another note below it. That's what keeps the vault compounding into sharper knowledge rather than sprawling into a pile of clippings — the difference between a second brain and a junk drawer.
 
 **Why files, not a database or an app:**
 
@@ -112,8 +116,9 @@ Machine independence isn't a bonus feature bolted on later. It falls out of the 
 | Component | Role | Notes |
 |---|---|---|
 | **[`ai-with-ant-os`](./README.md)** (this repo) | The method + reference architecture | Public, MIT. The blueprint. |
-| **Open Brain** | Capture layer | MCP server on a Supabase edge function. The cross-surface memory. |
-| **Your vault** | Synthesize layer | A private git repo of markdown. **Keep it private** — it's your knowledge, entities, and strategy. |
+| **[Open Brain (OB1)](https://github.com/NateBJones-Projects/OB1)** | Capture layer | Self-hosted MCP server on a Supabase edge function (Postgres + pgvector). The cross-surface memory. Built by Nate B. Jones. |
+| **[obsidian-second-brain](https://github.com/eugeniughelbur/obsidian-second-brain)** | Synthesize engine | Claude Code skill that turns the vault into a self-updating wiki — sources rewrite pages instead of appending. Built by Eugeniu Ghelbur. |
+| **Your vault** | Synthesize layer | A private git repo of markdown — the canonical knowledge. **Keep it private**; it's your entities, decisions, and strategy. |
 | **Skills / production config** | Produce layer | The Map / Build / Run chains that consume the brain. |
 | **Printing Press** (`printingpress.dev`) | Tooling | Generates the CLIs that wire APIs into the system. |
 
@@ -121,8 +126,8 @@ Machine independence isn't a bonus feature bolted on later. It falls out of the 
 
 ## How to build your own
 
-1. **Stand up a capture layer.** Anything you can write to from every surface you use. An MCP-backed service like Open Brain is the clean version; even a single always-open note works to start. The only hard requirement: zero friction, everywhere.
-2. **Start a vault.** A folder of markdown, in a private git repo. This is your source of truth. Push it to a remote so it's reachable from any machine and from Claude Code on the web.
+1. **Stand up a capture layer.** Anything you can write to from every surface you use. An MCP-backed service like [Open Brain (OB1)](https://github.com/NateBJones-Projects/OB1) is the clean version; even a single always-open note works to start. The only hard requirement: zero friction, everywhere.
+2. **Start a vault.** A folder of markdown, in a private git repo. This is your source of truth. Push it to a remote so it's reachable from any machine and from Claude Code on the web. To automate the synthesis step, the [obsidian-second-brain](https://github.com/eugeniughelbur/obsidian-second-brain) skill is a strong starting point.
 3. **Wire the rule.** Capture once → synthesize into the vault → produce many. Decide, up front, that the vault is canonical and capture only feeds it. One fact, one home.
 4. **Build Skills on top.** Now apply [Map / Build / Run](./METHOD.md). Every Skill reads the brain and writes its output downstream — never the other way around.
 
